@@ -6,7 +6,6 @@ export const TodoProvider = ({ children }) => {
 
     const { todos, dispatch } = UseTodo();
 
-    
     return (
         <TodosContext.Provider value={{
             todos,
