@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react'
+import { useEffect, useState } from 'react';
 import { UseActions } from './hooks/UseActions';
 import { ListTodo } from './components/ListTodo';
 import { FormTodo } from './components/FormTodo';

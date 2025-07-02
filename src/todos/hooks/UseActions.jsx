@@ -3,7 +3,8 @@ import {TodosContext} from '../context/store'
 
 import axios from 'axios';
 
-const baseUrl = import.meta.env.VITE_BASE_URL;
+// const baseUrl = import.meta.env.VITE_BASE_URL;
+const baseUrl = 'http://localhost:3000/api';
 
 
 export const UseActions = () => {
@@ -21,6 +22,8 @@ export const UseActions = () => {
             // console.log(response.data);
 
             dispatch({ type: 'SET_TODOS', payload: response.data });
+
+            return response.data;
 
         } catch (error) {
             dispatch({ type: 'SET_ERROR', payload: error.message });
