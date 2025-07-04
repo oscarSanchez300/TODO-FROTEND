@@ -1,4 +1,5 @@
 import React from "react";
+import PropTypes from 'prop-types'
 
 export const FormTodo = React.memo(({handleAddTodo, loading}) => {
 
@@ -38,3 +39,9 @@ export const FormTodo = React.memo(({handleAddTodo, loading}) => {
     </form>
   )
 })
+
+
+FormTodo.propTypes = {
+  loading: PropTypes.bool.isRequired,
+  handleAddTodo: PropTypes.func.isRequired,
+}

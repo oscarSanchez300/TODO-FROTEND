@@ -1,0 +1,15 @@
+// Jest Snapshot v1, https://jestjs.io/docs/snapshot-testing
+
+exports[`Test on <BtnDelete /> should of match with snapshot 1`] = `
+<div>
+  <button
+    aria-label="btn-delete"
+    class="btn btn-sm btn-outline-danger"
+    data-testid="test-delete"
+    disabled=""
+    role="dialog"
+  >
+    Delete
+  </button>
+</div>
+`;

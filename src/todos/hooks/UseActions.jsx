@@ -1,11 +1,7 @@
 import { useContext } from 'react';
 import {TodosContext} from '../context/store'
 
-import axios from 'axios';
-
-// const baseUrl = import.meta.env.VITE_BASE_URL;
-const baseUrl = 'http://localhost:3000/api';
-
+import { axiosInstance } from '../../config/axiosInstance';
 
 export const UseActions = () => {
 
@@ -18,7 +14,7 @@ export const UseActions = () => {
 
             dispatch({ type: 'START_SET_TODOS' });
 
-            const response = await axios.get(`${baseUrl}/todos`);
+            const response = await axiosInstance.get(`/todos`);
             // console.log(response.data);
 
             dispatch({ type: 'SET_TODOS', payload: response.data });
@@ -45,7 +41,7 @@ export const UseActions = () => {
 
         dispatch({ type: 'START_SET_TODOS' });
 
-        const response = await axios.post(`${baseUrl}/todos`, newTodo);
+        const response = await axiosInstance.post(`/todos`, newTodo);
         // console.log(response.data);
 
         dispatch({ type: 'ADD_TODO', payload: response.data });
@@ -67,7 +63,7 @@ export const UseActions = () => {
 
             // console.log({id})
 
-            const response = await axios.delete(`${baseUrl}/todos/${id}`);
+            const response = await axiosInstance.delete(`/todos/${id}`);
             // console.log(response.data);
 
             dispatch({ type: 'REMOVE_TODO', payload: id });
@@ -84,7 +80,7 @@ export const UseActions = () => {
         
             dispatch({ type: 'START_SET_TODOS' });
 
-            const response = await axios.put(`${baseUrl}/todos/${id}`);
+            const response = await axiosInstance.put(`/todos/${id}`);
             // console.log(response.data);
 
             dispatch({ type: 'TOGGLE_TODO', payload: id });
@@ -95,18 +91,16 @@ export const UseActions = () => {
 
     }
 
+    return {
+        data,
+        loading,
+        error,
 
-
-  return {
-    data,
-    loading,
-    error,
-
-    //Methods
-    handleGetTodos,
-    handleAddTodo,
-    handleRemoveTodo,
-    handleToggleTodo,
-  }
+        //Methods
+        handleGetTodos,
+        handleAddTodo,
+        handleRemoveTodo,
+        handleToggleTodo,
+    }
 
 }

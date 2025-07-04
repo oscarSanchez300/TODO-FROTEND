@@ -1,4 +1,6 @@
 
+import PropTypes from "prop-types";
+
 export const BtnToggle = ({todo, loading, handleToggleTodo}) => {
   return (
     <button 
@@ -9,4 +11,11 @@ export const BtnToggle = ({todo, loading, handleToggleTodo}) => {
         {todo.completed ? 'Undo' : 'Complete'}
     </button>
   )
+}
+
+
+BtnToggle.propTypes = {
+  todo: PropTypes.object.isRequired,
+  loading: PropTypes.bool.isRequired,
+  handleToggleTodo: PropTypes.func.isRequired,
 }

@@ -1,3 +1,4 @@
+import PropTypes from 'prop-types'
 import { BtnDelete } from "./BtnDelete"
 import { BtnToggle } from "./BtnToggle"
 
@@ -13,4 +14,12 @@ export const ListTodo = ({todo, loading, handleRemoveTodo, handleToggleTodo}) =>
         </div>
     </li>
   )
+}
+
+
+ListTodo.propTypes = {
+  todo: PropTypes.object.isRequired,
+  loading: PropTypes.bool.isRequired,
+  handleRemoveTodo: PropTypes.func.isRequired,
+  handleToggleTodo: PropTypes.func.isRequired,
 }
